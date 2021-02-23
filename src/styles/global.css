@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --title:         #2E384D;
+    --blue-dark:     #4953B8;
+    --blue-dark2:    #3f479e;
+    --blue:          #5965E0;
+    --blue-twitter:  #2AA9E0;
+    --text:          #666666;
+    --tex-highlight: #B3B9FF;
+    --gray-line:     #DCDDE0;
+    --background:    #F2F3F5;
+    --red:           #E83F5B;
+    --green:         #4CD62B;
+    --white:         #FFFFFF;
+    --yellow:          yellow;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; /* 16 * 0.9375 = 15px */
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; /* 16 * 0.9375 = 15px */
+    }
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #cecece;
+}
+
+
+body,  input, textarea, button {
+    font: 400 1rem 'Inter', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    height: 100vh;
+    max-width: 992px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
+/* ESTILO DOS COMPONENTES */
+

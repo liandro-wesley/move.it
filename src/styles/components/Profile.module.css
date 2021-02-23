@@ -1,0 +1,37 @@
+.profileContainer {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 720px) {
+    .profileContainer {
+        margin-top: 2.5rem;
+    }
+}
+.profileContainer img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+}
+
+.profileContainer div {
+    margin-left: 1.5rem;
+}
+
+.profileContainer div strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--title);
+}
+.profileContainer div p {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.profileContainer div p img {
+    margin-right: 0.5rem;
+    width: initial;
+    height: initial;
+}
