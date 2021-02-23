@@ -20,7 +20,7 @@ export default function Home() {
           <CountDown />
         </div>
         <div>
-            asdasds
+            
         </div>
       </section>
     </div>
