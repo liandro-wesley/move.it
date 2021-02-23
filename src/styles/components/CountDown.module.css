@@ -60,6 +60,12 @@
     transition: all .3s;
     outline: none;
 }
+
+.countDownButton img {
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
 .countDownButton:hover {
     background-color: var(--blue-dark);
 }

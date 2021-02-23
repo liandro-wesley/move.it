@@ -7,8 +7,14 @@ export function CountDown() {
     const minutes = Math.floor(time) / 60;
     const seconds = time % 60;
 
-    const [minuteLeft, minuteRight] = String(minutes).padStart(2,'0').split('');
+    let [minuteLeft, minuteRight] = String(minutes).padStart(2,'0').split('');
+    if(minuteRight === '.') {
+        minuteRight = minuteLeft;
+        minuteLeft = '0';
+    }
     const [secondsLeft, secondsRight] = String(seconds).padStart(2,'0').split('');
+
+
 
     function startCountDown() {
         setActive(true);
