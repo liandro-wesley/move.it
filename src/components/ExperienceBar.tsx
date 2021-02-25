@@ -7,7 +7,7 @@ interface ProgressProps {
 }
 
 export function ExperienceBar() {
-    let levelUp = 600;
+    let levelUp = 1200;
     let currentPercentage = 20;
     let color = 'red';
 

@@ -6,6 +6,7 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { CountDown } from "../components/CountDown";
 
 import styles from "../styles/pages/Home.module.css"
+import { ChallengeBox } from "../components/ChallengeBox";
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -19,8 +20,8 @@ export default function Home() {
           <CompletedChallenges/>
           <CountDown />
         </div>
-        <div>
-            
+        <div id="challengeBox">
+            <ChallengeBox/>
         </div>
       </section>
     </div>

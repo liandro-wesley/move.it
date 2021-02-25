@@ -17,6 +17,9 @@
 }
 
 @media only screen and (max-width: 720px) {
+    .container {
+        padding: 2.5rem 1rem;
+    }
     .container section {
         display: block;
     }
