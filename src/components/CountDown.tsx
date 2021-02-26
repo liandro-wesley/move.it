@@ -1,44 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import {CountdownContext} from '../context/CountdownContext'
 import styles from '../styles/components/CountDown.module.css'
 
 export function CountDown() {
-    const [time, setTime] = useState(0.05 * 60);
-    const [isActive, setisActive] = useState(false)
-    const [hasFinished, setHasFinished] = useState(false)
-    const minutes = Math.floor(time) / 60;
-    const seconds = time % 60;
-    let countDownTimeout:  NodeJS.Timeout;
+    const {minutes, seconds, hasFinished, isActive, startCountDown, resetCountDown} = useContext(CountdownContext)    
+    const [secondsLeft, secondsRight] = String(seconds).padStart(2,'0').split('');
     let [minuteLeft, minuteRight] = String(minutes).padStart(2,'0').split('');
 
     if(minuteRight === '.') {
         minuteRight = minuteLeft;
         minuteLeft = '0';
-    }
-    const [secondsLeft, secondsRight] = String(seconds).padStart(2,'0').split('');
-
-
-
-    function startCountDown() {
-        setisActive(true);
-    }
-    useEffect(() => {
-        if(isActive && time > 0) {
-            countDownTimeout = setTimeout(() => {
-                setTime(time - 1);
-            }, 1000)
-        } else if(isActive && time === 0) {
-            setHasFinished(true);
-            setisActive(false);
-            const challengeBox = document.getElementById('challengeBox');
-            (window.innerWidth <= 720) ? challengeBox.scrollIntoView() : null;
-        }
-    }, [isActive, time])
-
-    function resetCountDown() {
-        clearTimeout(countDownTimeout);
-        setisActive(false);
-        setTime(25 * 60);
-        
     }
 
     return (

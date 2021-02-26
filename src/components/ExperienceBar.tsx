@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ChallengesContext } from '../context/ChallengeContext';
 import styles from '../styles/components/ExperienceBar.module.css'
 
 interface ProgressProps {
@@ -7,23 +9,29 @@ interface ProgressProps {
 }
 
 export function ExperienceBar() {
-    let levelUp = 1200;
-    let currentPercentage = 20;
+    const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext)
+    let levelUp = experienceToNextLevel;
+    let currentPercentage = currentExperience;
     let color = 'red';
 
     function currentValue () {
-        if (currentPercentage < 100) {
-            return `${(levelUp * (currentPercentage / 100) )} xp`;
-        } else {
+        if (currentPercentage <= 0) {
             return '';
         }
+            if (currentPercentage < 100) {
+                return `${(Math.round(levelUp * (currentPercentage / 100)) )} xp`;
+            } else {
+                return;
+        }
+
+
     }
 
     if(currentPercentage >= 50 && currentPercentage < 99) {
         color = 'yellow';
     }
 
-    if(currentPercentage === 100) {
+    if(currentPercentage >= 100) {
         color = 'green';
     }
 
@@ -31,7 +39,7 @@ export function ExperienceBar() {
         <header className={styles.experienceBar}>
             <span>0 xp</span>
             <div>
-                <div style={{width: `${currentPercentage}%`, backgroundColor: `var(--${color})`}}/>
+                <div style={{width: `${currentPercentage > 100 ? 100 : currentPercentage}%`, backgroundColor: `var(--${color})`}}/>
                 <span className={styles.currentExperience} style={{left: `${currentPercentage}%`}}>{currentValue()}</span>
             </div>
             <span>{levelUp} xp</span>
